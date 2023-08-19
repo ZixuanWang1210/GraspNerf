@@ -43,12 +43,18 @@ After the dependency and assets are ready, please run
 bash run_simgrasp.sh
 ```
 
+测试时，可视化GUI会自动开启，可以在VNC中查看模拟抓取效果
+
 ## Training
 After the training data is ready, please run
 ```
 bash train.sh GPU_ID
 ```
 e.g. `bash train.sh 0`.
+
+如果出现`RuntimeError: DataLoader worker (pid 3242) is killed by signal: Bus error. It is possible that dataloader's workers are out of shared memory. Please try to raise your shared memory limit.`
+
+修改`src/nr/train/trainer.py Line：34` 中，`"worker_num": xx`为你希望的线程数量，0表示不使用多线程
 
 ## Data Generator
 1. Download the scene descriptor files from [GIGA](https://github.com/UT-Austin-RPL/GIGA#pre-generated-data) and [assets](https://drive.google.com/file/d/1-59zcQ8h5esT_ogjaDjtzQ6sG70WNWzU/view?usp=share_link).
