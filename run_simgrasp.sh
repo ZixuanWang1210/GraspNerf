@@ -1,7 +1,10 @@
 #!/bin/bash
 
+export PYTHONHOME=/root/mambaforge
+export PYTHONPATH=/root/mambaforge/lib/python3.9/site-packages:$PYTHONPATH
+
 GPUID=0
-BLENDER_BIN=/opt/blender-2.93.3-linux-x64/blender
+BLENDER_BIN=/workspaces/blender-2.93.3-linux-x64/blender
 
 RENDERER_ASSET_DIR=./data/assets
 BLENDER_PROJ_PATH=./data/assets/material_lib_graspnet-v2.blend

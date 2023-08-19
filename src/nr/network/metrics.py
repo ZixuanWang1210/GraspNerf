@@ -68,7 +68,7 @@ class PSNR_SSIM(Loss):
                 rgbs_other = rgbs_other.reshape([h,w,3]).detach().cpu().numpy()
                 rgbs_other=color_map_backward(rgbs_other)
                 psnr = compute_psnr(rgbs_gt,rgbs_other)
-                ssim = structural_similarity(rgbs_gt,rgbs_other,win_size=11,multichannel=True,data_range=255)
+                # ssim = structural_similarity(rgbs_gt,rgbs_other,win_size=11,multichannel=True,data_range=255)
                 outputs[f'psnr_{suffix}']=torch.tensor([psnr], dtype=torch.float32)
 
         # compute_psnr_prefix('nr')

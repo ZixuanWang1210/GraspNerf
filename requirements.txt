@@ -14,12 +14,11 @@ scipy
 lpips
 transforms3d
 kornia
-sklearn
+scikit-learn
 catkin_pkg
 black
 jupyterlab
 pandas
-mpi4py
 open3d
 pybullet==2.7.9
 pytorch-ignite

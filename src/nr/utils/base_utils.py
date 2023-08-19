@@ -93,7 +93,7 @@ def grey_repeats(img_raw):
 
 
 def normalize_image(img, mask=None):
-    if mask is not None: img[np.logical_not(mask.astype(np.bool))] = 127
+    if mask is not None: img[np.logical_not(mask.astype(np.bool_))] = 127
     img = (img.transpose([2, 0, 1]).astype(np.float32) - 127.0) / 128.0
     return torch.tensor(img, dtype=torch.float32)
 

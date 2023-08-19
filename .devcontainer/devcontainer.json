@@ -1,0 +1,26 @@
+{
+	// replace them as you need
+	"name": "graspnerf",
+	"image": "wzx1210/graspnerf:v1.0.0",
+
+	"features": {
+		// "ghcr.io/devcontainers/features/git:1": {},
+		// "ghcr.io/devcontainers/features/desktop-lite:1": {}
+	},
+
+	"runArgs": ["--init","--gpus=all"],
+	"forwardPorts": [6080, 5901],
+    "portsAttributes": {
+        "6080": {
+            "label": "desktop"
+        }
+    },
+	"overrideCommand": false,
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python"
+			]
+		}
+	}
+}

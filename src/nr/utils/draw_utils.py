@@ -354,7 +354,7 @@ def draw_world_points(img, points, Rwc, twc, K, dist=None):
 
 def extract_surface_points_from_volume(vol, rg, bound=(-1,1), color=(0,0,1), scale=0.3 / 40):
     assert len(vol.shape) == 3
-    ind = np.transpose( ( (vol > rg[0]).astype(np.bool) & (vol < rg[1]).astype(np.bool) ).nonzero())
+    ind = np.transpose( ( (vol > rg[0]).astype(np.bool_) & (vol < rg[1]).astype(np.bool_) ).nonzero())
     print(ind.shape)
     pcd = o3d.geometry.PointCloud()
     pcd.points = o3d.utility.Vector3dVector(ind)

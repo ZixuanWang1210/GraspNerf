@@ -185,7 +185,7 @@ class GraspSynDatabase(BaseDatabase):
     def get_mask(self, img_id, tp='desk'):
         if tp == 'desk':
             mask = self.get_depth(img_id) < self.depth_thres[self.tp]
-            return (mask.astype(np.bool))
+            return (mask.astype(np.bool_))
         elif tp == 'obj':
             mask_filename = os.path.join(self.root_dir,
                         f'mask/{img_id:04d}.exr')
@@ -193,7 +193,7 @@ class GraspSynDatabase(BaseDatabase):
             mask = cv2.resize(mask, self.img_wh, interpolation=cv2.INTER_NEAREST)
             cv2.imwrite('mask.jpg', mask * 256)
 
-            return ~(mask.astype(np.bool))
+            return ~(mask.astype(np.bool_))
         else:
             return np.ones((self.img_wh[1], self.img_wh[0]))
 
@@ -277,7 +277,7 @@ class VGNSynDatabase(GraspSynDatabase):
 
     def get_grasp_info(self):
         pos = self.df[["i","j","k"]].to_numpy(np.single)
-        index = np.round(pos).astype(np.long)
+        index = np.round(pos).astype(np.int64)
         l = pos.shape[0]
         width = self.df[["width"]].to_numpy(np.single).reshape(l)
         label = self.df[["label"]].to_numpy(np.float32).reshape(l)

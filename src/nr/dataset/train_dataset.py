@@ -245,7 +245,7 @@ class GeneralRendererDataset(Dataset):
             rfn, _, h, w = depth.shape
             far_ratios, near_ratios = [], []
             for rfi in range(rfn):
-                depth_val = depth[rfi][mask[rfi].astype(np.bool)]
+                depth_val = depth[rfi][mask[rfi].astype(np.bool_)]
                 depth_val = depth_val[depth_val > 1e-3]
                 depth_val = depth_val[depth_val < 1e4]
                 depth_max = np.max(depth_val) * 1.1
@@ -304,7 +304,7 @@ class GeneralRendererDataset(Dataset):
         if (database.database_name.startswith('real_estate') \
                 or database.database_name.startswith('real_iconic') \
                 or database.database_name.startswith('space')) and self.cfg['aug_pixel_center_sample']:
-                que_mask_cur = np.zeros_like(que_imgs_info['masks'][0, 0]).astype(np.bool)
+                que_mask_cur = np.zeros_like(que_imgs_info['masks'][0, 0]).astype(np.bool_)
                 h, w = que_mask_cur.shape
                 center_ratio = 0.8
                 begin_ratio = (1-center_ratio)/2
